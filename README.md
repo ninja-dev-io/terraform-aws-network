@@ -1,2 +1,2 @@
-# terraform infrastructure
-ninjadev IaC
+# terraform network infrastructure
+network IaC
