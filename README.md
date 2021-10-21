@@ -1,2 +1,2 @@
-# devops-code
+# terraform infrastructure
 ninjadev IaC
