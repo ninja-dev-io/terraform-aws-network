@@ -1,3 +1,7 @@
+locals {
+  security_groups = zipmap(concat(keys(aws_security_group.depth_zero), keys(aws_security_group.depth_one), keys(aws_security_group.depth_two), keys(aws_security_group.depth_three)), concat(values(aws_security_group.depth_zero), values(aws_security_group.depth_one), values(aws_security_group.depth_two), values(aws_security_group.depth_three))[*].id)
+}
+
 resource "aws_security_group" "depth_zero" {
   for_each    = { for group in var.security_groups : group.name => group if group.depth == 0 }
   name        = "${each.value.name}-${var.env}"

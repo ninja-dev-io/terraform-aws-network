@@ -61,7 +61,15 @@ variable "security_groups" {
   }))
 }
 
+variable "vpn" {
+  type = object({
+    domain            = string
+    client_cidr_block = string
+    split_tunnel      = bool
+    clients           = list(string)
+    security_groups   = list(string)
+  })
+}
 
 
 
-   
