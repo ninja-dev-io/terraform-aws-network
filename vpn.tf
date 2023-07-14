@@ -96,7 +96,6 @@ resource "aws_ec2_client_vpn_network_association" "private" {
   for_each               = aws_subnet.private_subnets
   client_vpn_endpoint_id = aws_ec2_client_vpn_endpoint.vpn.id
   subnet_id              = each.value.id
-  security_groups        = [for security_group in var.vpn.security_groups : lookup(local.security_groups, security_group)]
   depends_on             = [aws_subnet.private_subnets, aws_security_group.depth_zero, aws_security_group.depth_one, aws_security_group.depth_two, aws_security_group.depth_three]
 }
 

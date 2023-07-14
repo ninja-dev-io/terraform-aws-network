@@ -67,7 +67,6 @@ variable "vpn" {
     client_cidr_block = string
     split_tunnel      = bool
     clients           = list(string)
-    security_groups   = list(string)
   })
 }
 
